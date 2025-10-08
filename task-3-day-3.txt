@@ -1,0 +1,63 @@
+import java.util.Scanner;
+
+public class MultiTaskProgram {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // 1. Print even numbers from 5 to 55
+        System.out.println("Even numbers from 5 to 55:");
+        for (int i = 5; i <= 55; i++) {
+            if (i % 2 == 0) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println("\n--------------------------------");
+
+        // 2. Multiplication table from 1 to 20 (for user entered number)
+        System.out.print("Enter a number for multiplication table: ");
+        int num = sc.nextInt();
+        System.out.println("Multiplication table of " + num + ":");
+        for (int i = 1; i <= 20; i++) {
+            System.out.println(num + " x " + i + " = " + (num * i));
+        }
+        System.out.println("--------------------------------");
+
+        // 3. Password retry system (using while loop + condition)
+        String correctPassword = "java123";
+        int attempts = 3;
+        sc.nextLine(); // clear buffer
+        while (attempts > 0) {
+            System.out.print("Enter password: ");
+            String password = sc.nextLine();
+            if (password.equals(correctPassword)) {
+                System.out.println("Access Granted ✅");
+                break;
+            } else {
+                attempts--;
+                System.out.println("Wrong password! Attempts left: " + attempts);
+            }
+        }
+        if (attempts == 0) {
+            System.out.println("Access Denied ❌");
+        }
+        System.out.println("--------------------------------");
+
+        // 4. Factorial of a number
+        System.out.print("Enter a number to find its factorial: ");
+        int n = sc.nextInt();
+        long fact = 1;
+        for (int i = 1; i <= n; i++) {
+            fact *= i;
+        }
+        System.out.println("Factorial of " + n + " is " + fact);
+        System.out.println("--------------------------------");
+
+        // 5. Print all numbers between 1 and 10
+        System.out.println("Numbers from 1 to 10:");
+        for (int i = 1; i <= 10; i++) {
+            System.out.print(i + " ");
+        }
+
+        sc.close();
+    }
+}
