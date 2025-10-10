@@ -1,0 +1,140 @@
+
+1.Count vowels in a string
+
+import java.util.*;
+
+public class CountVowels {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String s = sc.nextLine().toLowerCase();
+        sc.close();
+
+        int count = 0;
+        for (char c : s.toCharArray()) {
+            if ("aeiou".indexOf(c) != -1) count++;
+        }
+
+        System.out.println("Number of vowels: " + count);
+    }
+}
+
+2.Reverse a string
+
+import java.util.*;
+
+public class ReverseString {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String s = sc.nextLine();
+        sc.close();
+
+        String reversed = new StringBuilder(s).reverse().toString();
+        System.out.println("Reversed string: " + reversed);
+    }
+}
+
+3.Check if a string is a palindrome
+
+import java.util.*;
+
+public class PalindromeCheck {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String s = sc.nextLine();
+        sc.close();
+
+        String reversed = new StringBuilder(s).reverse().toString();
+        if (s.equalsIgnoreCase(reversed))
+            System.out.println("Palindrome");
+        else
+            System.out.println("Not a palindrome");
+    }
+}
+
+4.Find duplicate characters
+
+import java.util.*;
+
+public class DuplicateCharacters {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String s = sc.nextLine().replaceAll(" ", "").toLowerCase();
+        sc.close();
+
+        int[] count = new int[256];
+        for (char c : s.toCharArray()) count[c]++;
+
+        boolean dup = false;
+        for (int i = 0; i < 256; i++) {
+            if (count[i] > 1) {
+                System.out.println((char)i + " appears " + count[i] + " times");
+                dup = true;
+            }
+        }
+
+        if (!dup) System.out.println("No duplicate characters found.");
+    }
+}
+
+5.Check if two strings are anagrams
+
+import java.util.*;
+
+public class AnagramCheck {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first string: ");
+        String s1 = sc.nextLine();
+        System.out.print("Enter second string: ");
+        String s2 = sc.nextLine();
+        sc.close();
+
+        char[] a = s1.replaceAll("\\s+", "").toLowerCase().toCharArray();
+        char[] b = s2.replaceAll("\\s+", "").toLowerCase().toCharArray();
+
+        Arrays.sort(a);
+        Arrays.sort(b);
+
+        if (Arrays.equals(a, b))
+            System.out.println("Strings are anagrams.");
+        else
+            System.out.println("Strings are not anagrams.");
+    }
+}
+
+6.Compress a string using run-length encoding (e.g., aaabb → a3b2).
+
+import java.util.*;
+
+public class RunLengthEncoding {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String s = sc.nextLine();
+        sc.close();
+
+        if (s.isEmpty()) {
+            System.out.println("Empty string!");
+            return;
+        }
+
+        StringBuilder encoded = new StringBuilder();
+        int count = 1;
+
+        for (int i = 1; i < s.length(); i++) {
+            if (s.charAt(i) == s.charAt(i - 1))
+                count++;
+            else {
+                encoded.append(s.charAt(i - 1)).append(count);
+                count = 1;
+            }
+        }
+        encoded.append(s.charAt(s.length() - 1)).append(count);
+
+        System.out.println("Compressed string: " + encoded.toString());
+    }
+}
