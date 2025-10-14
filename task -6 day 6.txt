@@ -1,0 +1,76 @@
+1.Write a Java class Vechicle with fields brand and price, and a method display(). Create
+an object and call the method.
+
+class Vehicle {
+    String brand;
+    double price;
+    void display() {
+        System.out.println("Brand: " + brand);
+        System.out.println("Price: " + price);
+    }
+    public static void main(String[] args) {
+        Vehicle v1 = new Vehicle();
+        v1.brand = "TATA";
+        v1.price = 1250000.50;
+        v1.display();
+    }
+}
+2.Declare and initialize an object of class Student with fields name and age. Print
+the values.
+
+class Student {
+    String name;
+    int age;
+    public static void main(String[] args) {
+        Student s1 = new Student();
+        s1.name = "Ketharani";
+        s1.age = 21;
+        System.out.println("Student Name: " + s1.name);
+        System.out.println("Student Age: " + s1.age);
+    }
+}
+
+3.Write a method int add(int a, int b) that returns the sum of two numbers. Show method calling.
+
+class Addition {
+    int add(int a, int b) {
+        return a + b;
+    }
+    public static void main(String[] args) {
+        Addition obj = new Addition();
+        int result = obj.add
+System.out.println("Sum of two numbers: " + result);
+    }
+}
+
+4.Write a recursive method to calculate factorial of a number.
+
+class FactorialExample {
+    int factorial(int n) {
+        if (n == 0 || n == 1) {
+            return 1;
+        } else {
+            return n * factorial(n - 1); 
+        }
+    }
+    public static void main(String[] args) {
+        FactorialExample obj = new FactorialExample();
+
+        int number = 5; 
+        int result = obj.factorial(number);
+        System.out.println("Factorial of " + number + " is: " + result);
+    }
+}
+
+
+5.Write a Java program that calls a predefined method (like length() of a string).
+
+class StringLengthExample {
+    public static void main(String[] args) {
+        String name = "Ketharani";
+        int length = name.length();
+        System.out.println("The string is: " + name);
+        System.out.println("Length of the string: " + length);
+    }
+}
+
